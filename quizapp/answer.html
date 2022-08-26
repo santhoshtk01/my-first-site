@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quiz</title>
+        <base href="quizApp/">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <script>
+
+            function start(){
+                const questions = ['q-1', 'q-2', 'q-3', 'q-4', 'q-5']
+                const answers = ['1620', 'analytical-engine', 'unix', 'powerpoint', 'hardware']
+
+                for (var i = 0; i < questions.length; i++){
+                    result(questions[i], i + 1, answers);
+                }
+
+            }
+            
+            // Function to validate the answers
+            function result(name, answerNo, answers){
+                var values = document.getElementsByName(name);
+
+                for (var i = 0; i < values.length; i++){
+                    if (values[i].checked){
+                        if (values[i].value == answers[answerNo - 1]){
+                            showCorrect(answerNo);
+                            return 0;
+                        }
+                    }
+                }
+
+                showWrong(answerNo);
+        
+            }
+
+            // For correct answers
+            function showCorrect(qNum){
+                var toShow = "correct-answer-" + qNum.toString();
+
+                document.getElementById(toShow).removeAttribute('hidden');
+
+            }
+
+            // For wrong answers
+            function showWrong(qNum){
+                var toShow = "wrong-answer-" + qNum.toString();
+
+                document.getElementById(toShow).removeAttribute('hidden');
+            }
+
+        </script>
+        <div class="container">
+
+        <h2>Welcome to the Computer Science Quiz.</h2>
+        <div id="question-1">
+            <p><b>1. In which year slide rule was developed ?</b></p>
+            <input type="radio" id="1605" name="q-1">
+            <label for="1605">1605</label>
+            <br>
+            <input type="radio" id="1610" name="q-1">
+            <label for="1610">1610</label>
+            <br>
+            <input checked type="radio" name="q-1" id="1620" value="1620">
+            <label for="1620">1620</label>
+            <br>
+            <input type="radio" name="q-1" id="1855">
+            <label for="1855">1855</label>
+            <br>
+
+            <!-- For correct answer -->
+            <div  hidden id="correct-answer-1" class="alert alert-success">
+                <h2>Correct Answer</h2>
+            </div>
+
+            <!-- For wrong answer -->
+            <div hidden id="wrong-answer-1" class="alert alert-danger">
+                <h2>Wrong Answer</h2>
+                <p id="answer-1"></p>
+            </div>
+        </div>
+        <br>
+        <div id="question-2">
+            <p><b>2. Which was the computer conceived by babbage ?</b></p>
+            <input type="radio" name="q-2" id="donald-knuth">
+            <label for="donald-knuth">Donald Knuth</label>
+            <br>
+            <input type="radio" name="q-2" id="arithmetic-machine">
+            <label for="arithmetic-machine">Arithmetic Machine</label>
+            <br>
+            <input checked type="radio" name="q-2" id="analytical-engine" value="analytical-engine">
+            <label for="analytical-engine">Analytical Engine</label>
+            <br>
+            <input type="radio" name="q-2" id="all-of-the-above">
+            <label for="all-of-the-above">All of the above</label>
+
+              <!-- For correct answer -->
+              <div hidden id="correct-answer-2" class="alert alert-success">
+                <h2>Correct Answer</h2>
+            </div>
+
+            <!-- For wrong answer -->
+            <div hidden id="wrong-answer-2" class="alert alert-danger">
+                <h3>Wrong Answer</h3>
+                <p id="answer-2"></p>
+            </div>
+        </div>
+        <br>
+        <div id="question-3">
+            <p><b>3. Shell is the exclusive feature of </b></p>
+            <input type="radio" name="q-3" id="application-software">
+            <label for="application-software">Application Software</label>
+            <br>
+            <input type="radio" name="q-3" id="system-software">
+            <label for="system-software">System Software</label>
+            <br>
+            <input type="radio" name="q-3" id="dos">
+            <label for="dos">DOS</label>
+            <br>
+            <input checked type="radio" name="q-3" id="unix" value="unix">
+            <label for="unix">UNIX</label>
+
+              <!-- For correct answer -->
+              <div hidden id="correct-answer-3" class="alert alert-success">
+                <h3>Correct Answer</h3>
+            </div>
+
+            <!-- For wrong answer -->
+            <div hidden id="wrong-answer-3" class="alert alert-danger">
+                <h3>Wrong Answer</h3>
+                <p id="answer-3"></p>
+            </div>
+        </div>
+        <br>
+        <div id="question-4">
+            <p><b>4. Name the application used to create presentations__</b></p>
+            <input type="radio" name="q-4" id="ms-access">
+            <label for="ms-access">MS Access</label>
+            <br>
+            <input type="radio" name="q-4" id="ms-word">
+            <label for="ms-word">MS Word</label>
+            <br>
+            <input type="radio" name="q-4" id="ms-excel">
+            <label for="ms-excel">MS Excel</label>
+            <br>
+            <input checked type="radio" name="q-4" id="powerpoint" value="powerpoint">
+            <label for="powerpoint">Powerpoint</label>
+
+              <!-- For correct answer -->
+              <div hidden id="correct-answer-4" class="alert alert-success">
+                <h3>Correct Answer</h3>
+            </div>
+
+            <!-- For wrong answer -->
+            <div hidden id="wrong-answer-4" class="alert alert-danger">
+                <h3>Wrong Answer</h3>
+                <p id="answer-4"></p>
+            </div>
+        </div>
+        <br>
+        <div id="question-5">
+            <p><b>5. Modem is a</b></p>
+            <input type="radio" name="q-5" id="word-process-software">
+            <label for="word-process-software">Word Processing Software</label>
+            <br>
+            <input type="radio" name="q-5" id="application-software">
+            <label for="application-software">Application Software</label>
+            <br>
+            <input checked type="radio" name="q-5" id="hardware" value="hardware">
+            <label for="hardware">Hardware</label>
+            <br>
+            <input type="radio" name="q-5" id="liveware">
+            <label for="liveware">Liveware</label>
+
+              <!-- For correct answer -->
+              <div hidden id="correct-answer-5" class="alert alert-success">
+                <h3>Correct Answer</h3>
+            </div>
+
+            <!-- For wrong answer -->
+            <div hidden id="wrong-answer-5" class="alert alert-danger">
+                <h3>Wrong Answer</h3>
+                <p id="answer-5"></p>
+            </div>
+        </div>
+        <br>
+        <button class="btn btn-success" onclick="start()">Submit Answers</button>
+            
+
+    </div>
+    </body>
+</html>
